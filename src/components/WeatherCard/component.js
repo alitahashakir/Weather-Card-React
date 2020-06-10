@@ -19,7 +19,7 @@ const WeatherCard = (props) => {
         rgb(255, ${highColor}, 0),
         rgb(255, ${lowColor}, 0)
       )`;
-  } else if (props.temp < 12) {
+  } else if (props.temp <= 12) {
     // This is for ccold weather
     highColor = (1 - (props.temp + 20) / 32) * 255;
     lowColor = highColor - 150;

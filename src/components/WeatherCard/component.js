@@ -20,7 +20,7 @@ const WeatherCard = (props) => {
         rgb(255, ${lowColor}, 0)
       )`;
   } else if (props.temp <= 12) {
-    // This is for ccold weather
+    // This is for cold weather
     highColor = (1 - (props.temp + 20) / 32) * 255;
     lowColor = highColor - 150;
     bg = `linear-gradient(
@@ -30,6 +30,7 @@ const WeatherCard = (props) => {
       )`;
   }
   const Card = styled.div`
+    float: left;
     margin: 0 auto;
     background: ${bg};
     width: 200px;
@@ -43,7 +44,7 @@ const WeatherCard = (props) => {
   return (
     <Card>
       <Location />
-      <Icon />
+      <Icon condition={props.condition} />
       <Condition />
     </Card>
   );

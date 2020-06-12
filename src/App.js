@@ -6,9 +6,14 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <WeatherCard temp={-5} condition="Clear" />
-      <WeatherCard temp={20} condition="Clouds" />
-      <WeatherCard temp={10} />
+      <WeatherCard temp={-3} condition="Snow" city="Sydney" country="AU" />
+      <WeatherCard temp={30} condition="Clouds" city="Karachi" country="PK" />
+      <WeatherCard
+        temp={15}
+        condition="Tornado"
+        city="Islamabad"
+        country="PK"
+      />
     </div>
   );
 }

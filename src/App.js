@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import WeatherCard from "./components/WeatherCard/component";
 import "./App.css";
@@ -35,6 +35,17 @@ function App() {
     });
   };
 
+  useEffect(() => {
+    data(query).then((res) => {
+      setWeather({
+        temp: res.main.temp,
+        city: res.name,
+        country: res.sys.country,
+        condition: res.weather[0].main,
+      });
+    });
+  }, []);
+
   return (
     <div className="App">
       <WeatherCard
@@ -45,10 +56,7 @@ function App() {
       />
 
       <form>
-        <input
-          value={weather.city}
-          onChange={(e) => setQuery(e.target.value)}
-        />
+        <input value={query} onChange={(e) => setQuery(e.target.value)} />
         <button onClick={(e) => handleSearch(e)}>Search</button>
       </form>
     </div>
